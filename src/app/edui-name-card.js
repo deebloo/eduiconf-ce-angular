@@ -10,7 +10,7 @@ class EduiNameCard extends HTMLElement {
 
   get handlers() {
     return {
-      BUTTON() {
+      button: () => {
         const cardEvent = new CustomEvent('greet', {
           detail: this.user
         });
@@ -24,7 +24,7 @@ class EduiNameCard extends HTMLElement {
     super();
 
     this.addEventListener('click', e => {
-      const tag = e.target.tagName;
+      const tag = e.target.tagName.toLowerCase();
       const handler = this.handlers[tag];
 
       if(handler) {
