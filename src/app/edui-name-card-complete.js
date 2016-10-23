@@ -1,11 +1,11 @@
 class EduiNameCard extends HTMLElement {
   set user(name) {
-    this._name = name;
+    this._user = name;
     this.render();
   }
 
   get user() {
-    return this._name || {};
+    return this._user || {};
   }
 
   get handlers() {
