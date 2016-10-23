@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   styles: [`
-      edui-name-card {
-        width: 400px;
-        display: block;
-        margin: 50px auto;
-      }
+    edui-name-card {
+      width: 400px;
+      display: block;
+      margin: 50px auto;
+    }
   `],
   template: `
     <edui-name-card [user]="currentUser" (greet)="onGreet($event)"></edui-name-card>

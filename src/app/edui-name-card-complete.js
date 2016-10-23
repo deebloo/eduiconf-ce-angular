@@ -1,6 +1,6 @@
 class EduiNameCard extends HTMLElement {
-  set user(name) {
-    this._user = name;
+  set user(user) {
+    this._user = user;
     this.render();
   }
 
@@ -23,14 +23,17 @@ class EduiNameCard extends HTMLElement {
   constructor() {
     super();
 
-    this.addEventListener('click', e => {
-      const tag = e.target.tagName.toLowerCase();
-      const handler = this.handlers[tag];
+    this.addEventListener('click', (e) => {
+      const target = e.target.tagName;
 
-      if(handler) {
-        handler();
+      if(target === 'BUTTON') {
+        const evtObj = new CustomEvent('greet', {
+          detail: this.user
+        });
+
+        this.dispatchEvent(evtObj);
       }
-    })
+    });
   }
 
   render() {
